@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <main>
       <div className="Logo">
-        <h1>Rick y Morty</h1>
+        <h1>Rick & Morty</h1>
 
         <form className="search">
           <input
