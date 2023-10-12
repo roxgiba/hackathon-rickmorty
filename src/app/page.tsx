@@ -65,7 +65,6 @@ export default function Home() {
                   />
                   <div className="charName">{character.name}</div>
                   <div className="charSpecies">
-                    {" "}
                     <span className="green-dot">🟢</span>
                     {character.species}
                   </div>
