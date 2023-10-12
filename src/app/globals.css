@@ -1,6 +1,9 @@
 * {
   margin: 0px;
   padding: 5px;
+}
+
+html {
   background-color: rgb(1, 86, 81);
 }
 
@@ -51,16 +54,16 @@ h3 {
 
 .card {
   border: solid 2px lightgreen;
-  background-color: cadetblue !important;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: cadetblue;
 }
 
 .card-content {
   text-align: center;
   padding: 10px;
+  background-color: cadetblue;
 }
 
 .charName {
