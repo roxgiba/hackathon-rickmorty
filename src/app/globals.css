@@ -1,0 +1,41 @@
+* {
+  margin: 0px;
+  padding: 5px;
+}
+
+main {
+  background-color: rgb(1, 86, 81);
+}
+
+.logo {
+}
+
+h1 {
+  color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  font-weight: 700;
+}
+
+input {
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  width: 100%;
+  background-color: rgb(188, 231, 217);
+}
+
+.container {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+h3 {
+  color: white;
+  padding: 50px 10px;
+}
