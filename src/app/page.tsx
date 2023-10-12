@@ -47,29 +47,33 @@ export default function Home() {
           />
         </form>
       </div>
-      <div className="container">
+      <div>
         <h3>List of characters</h3>
       </div>
-      {data ? (
-        <div>
-          {data.results.map((character) => (
-            <div className="card" key={character.id}>
-              <Image
-                src={character.image}
-                alt={character.name}
-                width={200}
-                height={200}
-                className="profilePic"
-              />
-              {<div className="charName">{character.name}</div>}
-              {<div className="charSpecies">{character.species}</div>}
-              {<div className="charOrigin">{character.origin.name}</div>}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p>No characters found</p>
-      )}
+      <div className="container">
+        {data && data.results ? (
+          <div className="grid">
+            {data.results.map((character) => (
+              <div className="card" key={character.id}>
+                <div className="card-content">
+                  <Image
+                    src={character.image}
+                    alt={character.name}
+                    width={200}
+                    height={200}
+                    className="profilePic"
+                  />
+                  <div className="charName">{character.name}</div>
+                  <div className="charSpecies">{character.species}</div>
+                  <div className="charOrigin">{character.origin.name}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>No characters found</p>
+        )}
+      </div>
     </main>
   );
 }
