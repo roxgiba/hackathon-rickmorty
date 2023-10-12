@@ -1,21 +1,75 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Home() {
+  const [data, setData] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState(""); // State variable for search query
+
+  useEffect(() => {
+    if (searchQuery.trim() === "") {
+      setLoading(false); // No search query, so set loading to false
+      setData(null); // Clear previous data
+      return;
+    }
+
+    fetch(`https://rickandmortyapi.com/api/character/?name=${searchQuery}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, [searchQuery]); // useEffect depends on searchQuery
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  if (isLoading) return <p>Loading...</p>;
+
   return (
     <main>
       <div className="Logo">
         <h1>Rick y Morty</h1>
 
         <form className="search">
-          <input type="search" placeholder="Find a character" />
+          <input
+            type="search"
+            placeholder="Find a character"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
         </form>
       </div>
       <div className="container">
         <h3>List of characters</h3>
-        <div></div>
       </div>
+      {data ? (
+        <div>
+          {data.results.map((character) => (
+            <div className="card" key={character.id}>
+              <Image
+                src={character.image}
+                alt={character.name}
+                width={200}
+                height={200}
+                className="profilePic"
+              />
+              {<div className="charName">{character.name}</div>}
+              {<div className="charSpecies">{character.species}</div>}
+              {<div className="charOrigin">{character.origin.name}</div>}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No characters found</p>
+      )}
     </main>
   );
 }
