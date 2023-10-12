@@ -64,7 +64,11 @@ export default function Home() {
                     className="profilePic"
                   />
                   <div className="charName">{character.name}</div>
-                  <div className="charSpecies">{character.species}</div>
+                  <div className="charSpecies">
+                    {" "}
+                    <span className="green-dot">🟢</span>
+                    {character.species}
+                  </div>
                   <div className="charOrigin">{character.origin.name}</div>
                 </div>
               </div>

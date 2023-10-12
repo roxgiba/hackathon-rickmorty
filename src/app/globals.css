@@ -70,10 +70,15 @@ h3 {
 
 .charName {
   color: white;
+  font-weight: 700;
 }
 
 .profilePic {
   border-radius: 50%;
   margin-left: 0px;
   margin-top: -50px;
+}
+
+.green-dot {
+  font-size: 10px;
 }
