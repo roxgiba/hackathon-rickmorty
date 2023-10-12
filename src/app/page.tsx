@@ -35,9 +35,16 @@ export default function Home() {
 
   return (
     <main>
-      <div className="Logo">
-        <h1>Rick & Morty</h1>
+      <div className="logo">
+        <Image
+          src="/rick-and-morty.png"
+          alt="rick and morty logo"
+          width={600}
+          height={200}
+        />
+      </div>
 
+      <div>
         <form className="search">
           <input
             type="search"
