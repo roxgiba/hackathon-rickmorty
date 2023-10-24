@@ -106,3 +106,13 @@ h3 {
     grid-template-columns: repeat(1, 1fr); /* Display one column for phones */
   }
 }
+
+@media (max-width: 767px) {
+  .logo {
+    width: 100%;
+  }
+  .logo img {
+    max-width: 100%;
+    height: auto;
+  }
+}
