@@ -39,7 +39,7 @@ export default function Home() {
         <Image
           src="/rick-and-morty.png"
           alt="rick and morty logo"
-          width={600}
+          width={500}
           height={200}
         />
       </div>
