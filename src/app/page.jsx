@@ -41,7 +41,6 @@ export default function Home() {
           alt="rick and morty logo"
           width={500}
           height={200}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
 
