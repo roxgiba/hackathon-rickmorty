@@ -85,10 +85,6 @@ h3 {
   padding: 0px !important;
 }
 
-.profilePic:hover {
-  border: solid 4px rgb(169, 243, 60);
-}
-
 .green-dot {
   font-size: 10px;
 }
@@ -103,6 +99,9 @@ h3 {
   .grid {
     grid-template-columns: repeat(4, 1fr);
   }
+  .profilePic:hover {
+    border: solid 4px rgb(169, 243, 60);
+  }
 }
 
 @media (max-width: 767px) {
@@ -110,9 +109,6 @@ h3 {
   .grid {
     grid-template-columns: repeat(1, 1fr); /* Display one column for phones */
   }
-}
-
-@media (max-width: 767px) {
   .logo {
     width: 100%;
   }
