@@ -1,7 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import {
+  useState,
+  useEffect,
+  SetStateAction,
+  JSXElementConstructor,
+  Key,
+  PromiseLikeOfReactNode,
+  ReactElement,
+  ReactNode,
+  ReactPortal,
+} from "react";
+// import { BiSearchAlt2 } from "react-icons/fa";
 import Image from "next/image";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -27,7 +39,9 @@ export default function Home() {
       });
   }, [searchQuery]); // useEffect depends on searchQuery
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setSearchQuery(e.target.value);
   };
 
@@ -52,6 +66,7 @@ export default function Home() {
             value={searchQuery}
             onChange={handleSearchChange}
           />
+          {/* <BiSearchAlt2 /> */}
         </form>
       </div>
       <div>
@@ -60,25 +75,61 @@ export default function Home() {
       <div className="container">
         {data && data.results ? (
           <div className="grid">
-            {data.results.map((character) => (
-              <div className="card" key={character.id}>
-                <div className="card-content">
-                  <Image
-                    src={character.image}
-                    alt={character.name}
-                    width={200}
-                    height={200}
-                    className="profilePic"
-                  />
-                  <div className="charName">{character.name}</div>
-                  <div className="charSpecies">
-                    <span className="green-dot">🟢</span>
-                    {character.species}
+            {data.results.map(
+              (character: {
+                id: Key | null | undefined;
+                image: string | StaticImport;
+                name:
+                  | string
+                  | number
+                  | boolean
+                  | ReactElement<any, string | JSXElementConstructor<any>>
+                  | Iterable<ReactNode>
+                  | PromiseLikeOfReactNode
+                  | null
+                  | undefined;
+                species:
+                  | string
+                  | number
+                  | boolean
+                  | ReactElement<any, string | JSXElementConstructor<any>>
+                  | Iterable<ReactNode>
+                  | ReactPortal
+                  | PromiseLikeOfReactNode
+                  | null
+                  | undefined;
+                origin: {
+                  name:
+                    | string
+                    | number
+                    | boolean
+                    | ReactElement<any, string | JSXElementConstructor<any>>
+                    | Iterable<ReactNode>
+                    | ReactPortal
+                    | PromiseLikeOfReactNode
+                    | null
+                    | undefined;
+                };
+              }) => (
+                <div className="card" key={character.id}>
+                  <div className="card-content">
+                    <Image
+                      src={character.image}
+                      alt={character.name}
+                      width={200}
+                      height={200}
+                      className="profilePic"
+                    />
+                    <div className="charName">{character.name}</div>
+                    <div className="charSpecies">
+                      <span className="green-dot">🟢</span>
+                      {character.species}
+                    </div>
+                    <div className="charOrigin">{character.origin.name}</div>
                   </div>
-                  <div className="charOrigin">{character.origin.name}</div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         ) : (
           <p>No characters found</p>
