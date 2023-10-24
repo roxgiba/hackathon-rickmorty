@@ -1,29 +1,17 @@
 "use client";
 
-import {
-  useState,
-  useEffect,
-  SetStateAction,
-  JSXElementConstructor,
-  Key,
-  PromiseLikeOfReactNode,
-  ReactElement,
-  ReactNode,
-  ReactPortal,
-} from "react";
-// import { BiSearchAlt2 } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export default function Home() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState(""); // State variable for search query
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     if (searchQuery.trim() === "") {
-      setLoading(false); // No search query, so set loading to false
-      setData(null); // Clear previous data
+      setLoading(false);
+      setData(null);
       return;
     }
 
@@ -37,11 +25,9 @@ export default function Home() {
         console.error("Error fetching data:", error);
         setLoading(false);
       });
-  }, [searchQuery]); // useEffect depends on searchQuery
+  }, [searchQuery]);
 
-  const handleSearchChange = (e: {
-    target: { value: SetStateAction<string> };
-  }) => {
+  const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
@@ -66,7 +52,6 @@ export default function Home() {
             value={searchQuery}
             onChange={handleSearchChange}
           />
-          {/* <BiSearchAlt2 /> */}
         </form>
       </div>
       <div>
@@ -75,61 +60,25 @@ export default function Home() {
       <div className="container">
         {data && data.results ? (
           <div className="grid">
-            {data.results.map(
-              (character: {
-                id: Key | null | undefined;
-                image: string | StaticImport;
-                name:
-                  | string
-                  | number
-                  | boolean
-                  | ReactElement<any, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | PromiseLikeOfReactNode
-                  | null
-                  | undefined;
-                species:
-                  | string
-                  | number
-                  | boolean
-                  | ReactElement<any, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | ReactPortal
-                  | PromiseLikeOfReactNode
-                  | null
-                  | undefined;
-                origin: {
-                  name:
-                    | string
-                    | number
-                    | boolean
-                    | ReactElement<any, string | JSXElementConstructor<any>>
-                    | Iterable<ReactNode>
-                    | ReactPortal
-                    | PromiseLikeOfReactNode
-                    | null
-                    | undefined;
-                };
-              }) => (
-                <div className="card" key={character.id}>
-                  <div className="card-content">
-                    <Image
-                      src={character.image}
-                      alt={character.name}
-                      width={200}
-                      height={200}
-                      className="profilePic"
-                    />
-                    <div className="charName">{character.name}</div>
-                    <div className="charSpecies">
-                      <span className="green-dot">🟢</span>
-                      {character.species}
-                    </div>
-                    <div className="charOrigin">{character.origin.name}</div>
+            {data.results.map((character) => (
+              <div className="card" key={character.id}>
+                <div className="card-content">
+                  <Image
+                    src={character.image}
+                    alt={character.name}
+                    width={200}
+                    height={200}
+                    className="profilePic"
+                  />
+                  <div className="charName">{character.name}</div>
+                  <div className="charSpecies">
+                    <span className="green-dot">🟢</span>
+                    {character.species}
                   </div>
+                  <div className="charOrigin">{character.origin.name}</div>
                 </div>
-              )
-            )}
+              </div>
+            ))}
           </div>
         ) : (
           <p>No characters found</p>
