@@ -49,8 +49,8 @@ input {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  gap: 60px; /* Adjust the gap as needed */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
 }
 
 h3 {
@@ -60,6 +60,7 @@ h3 {
 
 .card {
   border: solid 2px lightgreen;
+  border-radius: 2%;
   display: flex;
   justify-content: center;
   align-items: center;
