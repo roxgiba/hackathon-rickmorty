@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 # Rick and Morty Character Search
 
 ## Overview
-This React application enables users to search for characters from the popular animated series "Rick and Morty" using the Rick and Morty API. By entering a character's name in the search bar, the application fetches and displays a list of matching characters along with their details.
+This React application enables users to search for characters from the popular animated series "Rick and Morty" using the [Rick and Morty API](https://rickandmortyapi.com/). By entering a character's name in the search bar, the application fetches and displays a list of matching characters along with their details.
 
 ## Installation
 1. Clone the repository:
@@ -32,8 +32,8 @@ Access the application at http://localhost:3000.
     - Each character card includes an image, name, species, and origin.
 
 ## Dependencies
-- React: JavaScript library for building user interfaces.
-- Next.js: React framework for server-side rendered applications.
+- **React**: JavaScript library for building user interfaces.
+- **Next.js**: React framework for server-side rendered applications.
 - _react_ and _react-dom_: Core React libraries.
 - _next/image_: Component for optimizing and serving images.
 
@@ -58,3 +58,9 @@ fetch(`https://rickandmortyapi.com/api/character/?name=${searchQuery}`)
     setLoading(false);
   });
 ```
+
+
+## Acknowledgements
+[Rick and Morty API](https://rickandmortyapi.com/): Providing the data used in this application.
+
+
