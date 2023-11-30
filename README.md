@@ -8,11 +8,11 @@ This React application enables users to search for characters from the popular a
 ## Installation
 1. Clone the repository:
  ```
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/roxgiba/hackathon-rickmorty.git
  ```
 2. Navigate to the project directory:
  ```
-cd your-repository
+cd hackathon-rickmorty
  ```
 3. Install dependencies:
  ```
@@ -30,6 +30,12 @@ Access the application at http://localhost:3000.
 1. View the results:
     - The application fetches and displays a list of characters matching the entered name.
     - Each character card includes an image, name, species, and origin.
+
+## Deployment
+The Pokedex app is deployed and accessible at https://hackathon-rickmorty.vercel.app/.
+
+## Continuous Integration and Deployment (CI/CD)
+The project is set up with continuous integration and deployment using CI/CD Pipeline. Each push to the main branch triggers automatic testing and deployment processes to ensure a seamless and reliable application.
 
 ## Dependencies
 - **React**: JavaScript library for building user interfaces.
@@ -58,7 +64,6 @@ fetch(`https://rickandmortyapi.com/api/character/?name=${searchQuery}`)
     setLoading(false);
   });
 ```
-
 
 ## Acknowledgements
 [Rick and Morty API](https://rickandmortyapi.com/): Providing the data used in this application.
